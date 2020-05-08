@@ -6,4 +6,13 @@
 //  Copyright © 2020 heltyr. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class ActionButton: UIButton{
+    override func draw(_ rect: CGRect) {
+        self.layer.masksToBounds = true
+        self.clipsToBounds = true
+        self.layer.cornerRadius = 5
+        self.dropShadow(color: UIColor.red.withAlphaComponent(0.5) , opacity: 0.6, offSet: CGSize(width: 0, height: 10), radius: 25, scale: true)
+    }
+}

@@ -1,24 +1,426 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qrX-HR-DUR">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--My calculator-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainController" customModule="Test_app_calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bum-fI-IoQ">
+                                <rect key="frame" x="0.0" y="44" width="320" height="134"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PcJ-Jn-Af1">
+                                        <rect key="frame" x="20" y="8" width="280" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAx-lp-Fe3">
+                                        <rect key="frame" x="20" y="50" width="52.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="uAx-lp-Fe3" firstAttribute="top" secondItem="PcJ-Jn-Af1" secondAttribute="bottom" constant="8" id="3ar-50-pT3"/>
+                                    <constraint firstItem="PcJ-Jn-Af1" firstAttribute="leading" secondItem="bum-fI-IoQ" secondAttribute="leading" constant="20" id="CM9-gD-iWW"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="uAx-lp-Fe3" secondAttribute="bottom" constant="20" id="Rt5-PP-pLb"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uAx-lp-Fe3" secondAttribute="trailing" constant="20" id="b6R-sq-kxz"/>
+                                    <constraint firstItem="PcJ-Jn-Af1" firstAttribute="top" secondItem="bum-fI-IoQ" secondAttribute="top" constant="8" id="eTc-2e-6JN"/>
+                                    <constraint firstAttribute="trailing" secondItem="PcJ-Jn-Af1" secondAttribute="trailing" constant="20" id="mMM-dz-LpS"/>
+                                    <constraint firstItem="uAx-lp-Fe3" firstAttribute="leading" secondItem="bum-fI-IoQ" secondAttribute="leading" constant="20" id="wgY-fU-rmm"/>
+                                    <constraint firstAttribute="height" constant="134" id="ypf-1q-izw"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9yX-D8-YxY">
+                                <rect key="frame" x="0.0" y="186" width="320" height="60"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f7d-a5-Ikr">
+                                        <rect key="frame" x="0.0" y="0.0" width="106.5" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9OF-qz-WcG" customClass="ActionButton" customModule="Test_app_calculator" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="10" width="66.5" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="10^x"/>
+                                                <connections>
+                                                    <action selector="degreeAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nqW-cC-l2Q"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="9OF-qz-WcG" firstAttribute="leading" secondItem="f7d-a5-Ikr" secondAttribute="leading" constant="20" id="8AF-Jb-5BD"/>
+                                            <constraint firstItem="9OF-qz-WcG" firstAttribute="top" secondItem="f7d-a5-Ikr" secondAttribute="top" constant="10" id="cB2-W7-2zO"/>
+                                            <constraint firstAttribute="trailing" secondItem="9OF-qz-WcG" secondAttribute="trailing" constant="20" id="jan-wz-kq6"/>
+                                            <constraint firstAttribute="bottom" secondItem="9OF-qz-WcG" secondAttribute="bottom" constant="10" id="muo-YO-9qV"/>
+                                            <constraint firstAttribute="height" constant="60" id="pk7-mj-9q1"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RuI-lL-qp2">
+                                        <rect key="frame" x="106.5" y="0.0" width="107" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7d-Bi-gt3" customClass="ActionButton" customModule="Test_app_calculator" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="10" width="67" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="x!"/>
+                                                <connections>
+                                                    <action selector="factorialAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w3C-Rj-SsM"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="y7d-Bi-gt3" firstAttribute="top" secondItem="RuI-lL-qp2" secondAttribute="top" constant="10" id="9Um-T4-fPB"/>
+                                            <constraint firstAttribute="bottom" secondItem="y7d-Bi-gt3" secondAttribute="bottom" constant="10" id="D6Y-Im-RX5"/>
+                                            <constraint firstItem="y7d-Bi-gt3" firstAttribute="leading" secondItem="RuI-lL-qp2" secondAttribute="leading" constant="20" id="Q77-hw-ZWI"/>
+                                            <constraint firstAttribute="height" constant="60" id="lkT-OS-eZk"/>
+                                            <constraint firstAttribute="trailing" secondItem="y7d-Bi-gt3" secondAttribute="trailing" constant="20" id="u7A-y0-PDs"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h34-g8-hEd">
+                                        <rect key="frame" x="213.5" y="0.0" width="106.5" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cpt-eC-dpW" customClass="ActionButton" customModule="Test_app_calculator" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="10" width="66.5" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="√x"/>
+                                                <connections>
+                                                    <action selector="rootAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Psc-W7-8eL"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="cpt-eC-dpW" secondAttribute="trailing" constant="20" id="JNj-Sr-sE6"/>
+                                            <constraint firstAttribute="height" constant="60" id="Jcc-Kk-zNS"/>
+                                            <constraint firstAttribute="bottom" secondItem="cpt-eC-dpW" secondAttribute="bottom" constant="10" id="MmD-Ot-jff"/>
+                                            <constraint firstItem="cpt-eC-dpW" firstAttribute="leading" secondItem="h34-g8-hEd" secondAttribute="leading" constant="20" id="Rng-bx-hlY"/>
+                                            <constraint firstItem="cpt-eC-dpW" firstAttribute="top" secondItem="h34-g8-hEd" secondAttribute="top" constant="10" id="va5-KP-6Di"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="eYi-BG-Fua"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="414" constant="414" id="vqq-Af-70Z"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZgA-OR-sW6">
+                                <rect key="frame" x="20" y="254" width="280" height="294"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gUi-1A-4FH">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="73.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oIS-WR-dgz">
+                                                <rect key="frame" x="0.0" y="0.0" width="93.5" height="73.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ICU-ja-LvC" customClass="NumberButton" customModule="Test_app_calculator" customModuleProvider="target">
+                                                        <rect key="frame" x="20" y="20" width="53.5" height="33.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <state key="normal" title="1"/>
+                                                        <connections>
+                                                            <action selector="numberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j2b-29-JVG"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="ICU-ja-LvC" secondAttribute="trailing" constant="20" id="4OP-YR-LO9"/>
+                                                    <constraint firstItem="ICU-ja-LvC" firstAttribute="top" secondItem="oIS-WR-dgz" secondAttribute="top" constant="20" id="9tn-D3-E0e"/>
+                                                    <constraint firstItem="ICU-ja-LvC" firstAttribute="leading" secondItem="oIS-WR-dgz" secondAttribute="leading" constant="20" id="A4Q-DD-7Db"/>
+                                                    <constraint firstAttribute="bottom" secondItem="ICU-ja-LvC" secondAttribute="bottom" constant="20" id="e2O-y5-HuH"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tmg-Ap-EX3">
+                                                <rect key="frame" x="93.5" y="0.0" width="93" height="73.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ip-Fu-gaX" customClass="NumberButton" customModule="Test_app_calculator" customModuleProvider="target">
+                                                        <rect key="frame" x="20" y="20" width="53" height="33.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <state key="normal" title="2"/>
+                                                        <connections>
+                                                            <action selector="numberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TbU-dW-NA0"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="8ip-Fu-gaX" secondAttribute="bottom" constant="20" id="0ER-sX-Umn"/>
+                                                    <constraint firstItem="8ip-Fu-gaX" firstAttribute="leading" secondItem="Tmg-Ap-EX3" secondAttribute="leading" constant="20" id="j4m-L1-AUV"/>
+                                                    <constraint firstAttribute="trailing" secondItem="8ip-Fu-gaX" secondAttribute="trailing" constant="20" id="kkA-Bj-925"/>
+                                                    <constraint firstItem="8ip-Fu-gaX" firstAttribute="top" secondItem="Tmg-Ap-EX3" secondAttribute="top" constant="20" id="vHf-83-Puv"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IhQ-pZ-HN7">
+                                                <rect key="frame" x="186.5" y="0.0" width="93.5" height="73.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Om4-4n-b2K" customClass="NumberButton" customModule="Test_app_calculator" customModuleProvider="target">
+                                                        <rect key="frame" x="20" y="20" width="53.5" height="33.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <state key="normal" title="3"/>
+                                                        <connections>
+                                                            <action selector="numberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vbq-tm-xyy"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="Om4-4n-b2K" secondAttribute="bottom" constant="20" id="OBv-pJ-4ml"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Om4-4n-b2K" secondAttribute="trailing" constant="20" id="fxh-hp-Nka"/>
+                                                    <constraint firstItem="Om4-4n-b2K" firstAttribute="leading" secondItem="IhQ-pZ-HN7" secondAttribute="leading" constant="20" id="j62-bi-uJk"/>
+                                                    <constraint firstItem="Om4-4n-b2K" firstAttribute="top" secondItem="IhQ-pZ-HN7" secondAttribute="top" constant="20" id="yXE-yf-dl7"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ury-cP-074">
+                                        <rect key="frame" x="0.0" y="73.5" width="280" height="73.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wC9-dH-l8V">
+                                                <rect key="frame" x="0.0" y="0.0" width="93.5" height="73.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E6Z-Zh-BOc" customClass="NumberButton" customModule="Test_app_calculator" customModuleProvider="target">
+                                                        <rect key="frame" x="20" y="20" width="53.5" height="33.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <state key="normal" title="4"/>
+                                                        <connections>
+                                                            <action selector="numberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JtE-ZS-4Rb"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="E6Z-Zh-BOc" firstAttribute="top" secondItem="wC9-dH-l8V" secondAttribute="top" constant="20" id="Gro-3w-k46"/>
+                                                    <constraint firstItem="E6Z-Zh-BOc" firstAttribute="leading" secondItem="wC9-dH-l8V" secondAttribute="leading" constant="20" id="PLF-Qa-9zo"/>
+                                                    <constraint firstAttribute="bottom" secondItem="E6Z-Zh-BOc" secondAttribute="bottom" constant="20" id="bSz-we-NS2"/>
+                                                    <constraint firstAttribute="trailing" secondItem="E6Z-Zh-BOc" secondAttribute="trailing" constant="20" id="yid-AP-2lM"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NkI-vO-8ol">
+                                                <rect key="frame" x="93.5" y="0.0" width="93" height="73.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WYE-Hp-hPI" customClass="NumberButton" customModule="Test_app_calculator" customModuleProvider="target">
+                                                        <rect key="frame" x="20" y="20" width="53" height="33.5"/>
+                                                        <state key="normal" title="5"/>
+                                                        <connections>
+                                                            <action selector="numberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bAz-VH-deM"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="WYE-Hp-hPI" firstAttribute="top" secondItem="NkI-vO-8ol" secondAttribute="top" constant="20" id="Fz1-5f-wFp"/>
+                                                    <constraint firstAttribute="trailing" secondItem="WYE-Hp-hPI" secondAttribute="trailing" constant="20" id="Iva-if-K5J"/>
+                                                    <constraint firstAttribute="bottom" secondItem="WYE-Hp-hPI" secondAttribute="bottom" constant="20" id="XIw-cp-Ftz"/>
+                                                    <constraint firstItem="WYE-Hp-hPI" firstAttribute="leading" secondItem="NkI-vO-8ol" secondAttribute="leading" constant="20" id="Zhv-or-gz6"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ryx-rv-DV5">
+                                                <rect key="frame" x="186.5" y="0.0" width="93.5" height="73.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eFe-60-hcl" customClass="NumberButton" customModule="Test_app_calculator" customModuleProvider="target">
+                                                        <rect key="frame" x="20" y="20" width="53.5" height="33.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <state key="normal" title="6"/>
+                                                        <connections>
+                                                            <action selector="numberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vSI-nQ-XHN"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="eFe-60-hcl" firstAttribute="top" secondItem="Ryx-rv-DV5" secondAttribute="top" constant="20" id="PBh-UF-NuI"/>
+                                                    <constraint firstAttribute="bottom" secondItem="eFe-60-hcl" secondAttribute="bottom" constant="20" id="PQi-Jw-5Iu"/>
+                                                    <constraint firstAttribute="trailing" secondItem="eFe-60-hcl" secondAttribute="trailing" constant="20" id="mYa-KG-2mw"/>
+                                                    <constraint firstItem="eFe-60-hcl" firstAttribute="leading" secondItem="Ryx-rv-DV5" secondAttribute="leading" constant="20" id="oeQ-Fi-BG8"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="4SG-ZX-Faa">
+                                        <rect key="frame" x="0.0" y="147" width="280" height="73.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Afu-Oe-mbb">
+                                                <rect key="frame" x="0.0" y="0.0" width="93.5" height="73.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbi-8f-dVB" customClass="NumberButton" customModule="Test_app_calculator" customModuleProvider="target">
+                                                        <rect key="frame" x="20" y="20" width="53.5" height="33.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <state key="normal" title="7"/>
+                                                        <connections>
+                                                            <action selector="numberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1s3-P4-OaG"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="qbi-8f-dVB" firstAttribute="leading" secondItem="Afu-Oe-mbb" secondAttribute="leading" constant="20" id="8de-2V-iIi"/>
+                                                    <constraint firstAttribute="bottom" secondItem="qbi-8f-dVB" secondAttribute="bottom" constant="20" id="RnS-UE-Vrz"/>
+                                                    <constraint firstItem="qbi-8f-dVB" firstAttribute="top" secondItem="Afu-Oe-mbb" secondAttribute="top" constant="20" id="S1h-MW-DX0"/>
+                                                    <constraint firstAttribute="trailing" secondItem="qbi-8f-dVB" secondAttribute="trailing" constant="20" id="twl-5r-PuY"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ca1-bc-WMk">
+                                                <rect key="frame" x="93.5" y="0.0" width="93" height="73.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QpM-Na-sIX" customClass="NumberButton" customModule="Test_app_calculator" customModuleProvider="target">
+                                                        <rect key="frame" x="20" y="20" width="53" height="33.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <state key="normal" title="8"/>
+                                                        <connections>
+                                                            <action selector="numberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i9X-eb-MHz"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="QpM-Na-sIX" secondAttribute="bottom" constant="20" id="VHI-dX-1Uu"/>
+                                                    <constraint firstItem="QpM-Na-sIX" firstAttribute="leading" secondItem="ca1-bc-WMk" secondAttribute="leading" constant="20" id="ZSi-9v-pQ7"/>
+                                                    <constraint firstItem="QpM-Na-sIX" firstAttribute="top" secondItem="ca1-bc-WMk" secondAttribute="top" constant="20" id="nbk-RN-HtI"/>
+                                                    <constraint firstAttribute="trailing" secondItem="QpM-Na-sIX" secondAttribute="trailing" constant="20" id="wM6-1J-LYD"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hxL-tl-iOq">
+                                                <rect key="frame" x="186.5" y="0.0" width="93.5" height="73.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLP-9m-d6U" customClass="NumberButton" customModule="Test_app_calculator" customModuleProvider="target">
+                                                        <rect key="frame" x="20" y="20" width="53.5" height="33.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <state key="normal" title="9"/>
+                                                        <connections>
+                                                            <action selector="numberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Rt-4N-vMW"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="tLP-9m-d6U" secondAttribute="bottom" constant="20" id="DOD-gc-Dqj"/>
+                                                    <constraint firstItem="tLP-9m-d6U" firstAttribute="top" secondItem="hxL-tl-iOq" secondAttribute="top" constant="20" id="NAV-fa-GWg"/>
+                                                    <constraint firstItem="tLP-9m-d6U" firstAttribute="leading" secondItem="hxL-tl-iOq" secondAttribute="leading" constant="20" id="qmh-CS-LSv"/>
+                                                    <constraint firstAttribute="trailing" secondItem="tLP-9m-d6U" secondAttribute="trailing" constant="20" id="xPU-Gk-JFt"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="70z-LG-58P">
+                                        <rect key="frame" x="0.0" y="220.5" width="280" height="73.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e63-zc-Qaq">
+                                                <rect key="frame" x="0.0" y="0.0" width="93.5" height="73.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kbl-Yc-fR0" customClass="ActionButton" customModule="Test_app_calculator" customModuleProvider="target">
+                                                        <rect key="frame" x="20" y="20" width="53.5" height="33.5"/>
+                                                        <state key="normal" title="C"/>
+                                                        <connections>
+                                                            <action selector="delNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cls-ut-PbA"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="Kbl-Yc-fR0" secondAttribute="trailing" constant="20" id="BMX-KS-WC5"/>
+                                                    <constraint firstItem="Kbl-Yc-fR0" firstAttribute="top" secondItem="e63-zc-Qaq" secondAttribute="top" constant="20" id="LCf-Ez-MM0"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Kbl-Yc-fR0" secondAttribute="bottom" constant="20" id="aFI-Y1-WXT"/>
+                                                    <constraint firstItem="Kbl-Yc-fR0" firstAttribute="leading" secondItem="e63-zc-Qaq" secondAttribute="leading" constant="20" id="jjB-2x-hhW"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RXC-Nh-qBa">
+                                                <rect key="frame" x="93.5" y="0.0" width="93" height="73.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7D-86-v1L" customClass="NumberButton" customModule="Test_app_calculator" customModuleProvider="target">
+                                                        <rect key="frame" x="20" y="20" width="53" height="33.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <state key="normal" title="0"/>
+                                                        <connections>
+                                                            <action selector="numberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ugt-kl-45c"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="l7D-86-v1L" firstAttribute="leading" secondItem="RXC-Nh-qBa" secondAttribute="leading" constant="20" id="E2G-Wa-VAL"/>
+                                                    <constraint firstAttribute="bottom" secondItem="l7D-86-v1L" secondAttribute="bottom" constant="20" id="cxi-AV-qz1"/>
+                                                    <constraint firstAttribute="trailing" secondItem="l7D-86-v1L" secondAttribute="trailing" constant="20" id="jfF-dJ-FUr"/>
+                                                    <constraint firstItem="l7D-86-v1L" firstAttribute="top" secondItem="RXC-Nh-qBa" secondAttribute="top" constant="20" id="yLU-SG-Ob0"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ozx-32-nkV">
+                                                <rect key="frame" x="186.5" y="0.0" width="93.5" height="73.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6PE-Ok-uGN" customClass="ActionButton" customModule="Test_app_calculator" customModuleProvider="target">
+                                                        <rect key="frame" x="20" y="20" width="53.5" height="33.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <state key="normal" title="."/>
+                                                        <connections>
+                                                            <action selector="pointAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jsy-VH-kpc"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="6PE-Ok-uGN" firstAttribute="leading" secondItem="Ozx-32-nkV" secondAttribute="leading" constant="20" id="49A-T8-sBP"/>
+                                                    <constraint firstAttribute="trailing" secondItem="6PE-Ok-uGN" secondAttribute="trailing" constant="20" id="Ju0-u7-Nsf"/>
+                                                    <constraint firstItem="6PE-Ok-uGN" firstAttribute="top" secondItem="Ozx-32-nkV" secondAttribute="top" constant="20" id="rLn-nj-Rhd"/>
+                                                    <constraint firstAttribute="bottom" secondItem="6PE-Ok-uGN" secondAttribute="bottom" constant="20" id="x5M-QZ-WS7"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="9yX-D8-YxY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="79f-9i-eh8"/>
+                            <constraint firstItem="9yX-D8-YxY" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="8KK-Wn-oUO"/>
+                            <constraint firstItem="ZgA-OR-sW6" firstAttribute="top" secondItem="9yX-D8-YxY" secondAttribute="bottom" constant="8" id="EcT-RA-zge"/>
+                            <constraint firstItem="bum-fI-IoQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="H4Z-hL-gWy"/>
+                            <constraint firstItem="ZgA-OR-sW6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Jxw-7Z-Uzv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bum-fI-IoQ" secondAttribute="trailing" id="RR3-IG-oww"/>
+                            <constraint firstItem="9yX-D8-YxY" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bum-fI-IoQ" secondAttribute="bottom" constant="8" id="TAo-Ga-nBK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZgA-OR-sW6" secondAttribute="trailing" constant="20" id="aTK-c0-T0s"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9yX-D8-YxY" secondAttribute="trailing" id="hor-5M-tmz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZgA-OR-sW6" secondAttribute="bottom" constant="20" id="oCF-F5-7Oh"/>
+                            <constraint firstItem="bum-fI-IoQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="oDf-SI-ohE"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="My calculator" id="LfV-OC-9w7"/>
+                    <connections>
+                        <outlet property="nuberInputTextFielt" destination="PcJ-Jn-Af1" id="tiI-5r-YPz"/>
+                        <outlet property="resultLabel" destination="uAx-lp-Fe3" id="TXj-Vm-9yP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="137.94642857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xWn-Zm-Khn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qrX-HR-DUR" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="p29-jN-l7c">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="v1X-GZ-BIu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h3A-aV-5VJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
     </scenes>
 </document>
